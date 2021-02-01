@@ -22,7 +22,7 @@
         </div>
       </div>
     </nav>
-    <img class="img-thumbnail" src="./assets/貓咪2.jpg">
+    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>

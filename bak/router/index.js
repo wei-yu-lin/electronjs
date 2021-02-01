@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import coil from '@/view/Coil'
-import coilmod from '@/view/view_child/Coilmod'
+import coilmod from '@/view/view_child/Coil_mod'
 
 Vue.use(Router)
 
@@ -19,8 +19,8 @@ export default new Router({
       component: coil,
       children: [
         {
-          path: '/coil/insert',
-          name: '鋼捲新增',
+          path: '/coil/:id',
+          name: '鋼捲修改',
           component: coilmod
         }
       ]
