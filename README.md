@@ -1,5 +1,5 @@
 # vue-electron
-
+存放ODBC版本(for 公司)
 ## Project setup
 ```
 yarn install
