@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <router-link class="nav-link active"  :to="{name:'HelloWorld'}">首頁</router-link>
+              <router-link class="nav-link active"  :to="{name:'Login'}">首頁</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link active" :to="{name:'鋼捲'}">在製鋼捲</router-link>
@@ -42,4 +42,8 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+</style>
+
+<style lang="scss">
+@import "./assets/all.scss";
 </style>

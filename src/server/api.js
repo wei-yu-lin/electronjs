@@ -19,15 +19,15 @@ const pool = mysql.createPool({
 module.exports = {
   async getValue(req, res, next) {
     let sql = sqlMap.getValue;
-    pool.getConnection((err, connection) => {
+    await pool.getConnection((err, connection) => {
       if (err) {
         console.log("錯囉=", err)
         return
       }
       else {
-          connection.query(sql, (err, result) => {
+        connection.query(sql, (err, result) => {
           res.json(result)
-          console.log("成功",result)
+          console.log("成功", result)
           connection.release();
         })
       }
@@ -39,7 +39,7 @@ module.exports = {
     const connection1 = await odbc.connect("DSN=RDBCPS36;UID=yuCPS00;PWD=CPS111036A");
     connection1.query(`UPDATE ccap210m SET coil_number = "${coil_no}",steel_grade="${steel_grade}",entry_weight = "${entry_weight}",entry_width = "${entry_width}" WHERE COIL_NUMBER = "${coil_no}"`, (err, result) => {
       if (err) {
-        console.log("錯誤"+err)
+        console.log("錯誤" + err)
       }
       else {
         console.log("資料修改完成");
@@ -51,13 +51,13 @@ module.exports = {
     var coil_no = req.body.coil_no, steel_grade = req.body.steel_grade;
     var entry_weight = req.body.entry_weight, entry_width = req.body.entry_width;
     let sql = sqlMap.insertValue;
-    pool.getConnection((err, connection) => {
+    await pool.getConnection((err, connection) => {
       if (err) {
         console.log("錯囉=", err)
         return
       }
       else {
-        await connection.query(sql, [coil_no, steel_grade, entry_weight, entry_width], (err, result) => {
+         connection.query(sql, [coil_no, steel_grade, entry_weight, entry_width], (err, result) => {
           res.json(result)
           console.log("資料新增完成");
           connection.release();
@@ -69,9 +69,9 @@ module.exports = {
     var coil_no = req.body.coil_no;
     let sql = sqlMap.delete;
     const connection1 = await odbc.connect("DSN=RDBCPS36;UID=yuCPS00;PWD=CPS111036A");
-    connection1.query(sql,[coil_no], (err, result) => {
+    connection1.query(sql, [coil_no], (err, result) => {
       if (err) {
-        console.log("錯誤"+err)
+        console.log("錯誤" + err)
       }
       else {
         console.log("資料刪除完成");

@@ -57,7 +57,7 @@ export default {
         entry_width: this.temp.input4
       }).then((res) => {
         console.log('res', res)
-        this.$router.back()
+        location.reload()
       })
     }
   }

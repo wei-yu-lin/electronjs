@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="button">
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-          <tr v-for = "(item,index) in coil" :key="item.COIL_NUMBER">
+          <tr v-for = "(item,index) in coil" :key="item.coil_no">
             <th scope="row">{{ index+1 }}</th>
             <td>{{ item.coil_no }}</td>
             <td>{{ item.schd_no }}</td>
@@ -41,7 +41,6 @@ export default {
     show_value () {
       this.$http.get('/api/getValue').then((res) => {
         this.coil = res.data
-        console.log(res.data)
       })
     },
     update () {
@@ -60,6 +59,7 @@ export default {
         coil_no: item.COIL_NUMBER
       }).then((res) => {
         console.log('res', res)
+        location.reload()
       })
     }
   },
@@ -68,3 +68,9 @@ export default {
   }
 }
 </script>
+
+<style>
+#button{
+  padding-bottom:60px;
+}
+</style>

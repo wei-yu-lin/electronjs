@@ -1,17 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Login from '@/view/Login'
 import coil from '@/view/Coil'
-import coilmod from '@/view/view_child/Coilmod'
+import coilmod from '@/view/coil_child/Coilmod'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/Login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/coil',
