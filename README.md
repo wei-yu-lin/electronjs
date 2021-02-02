@@ -1,7 +1,6 @@
 # first
 
-> A Vue.js project
-
+> MySQL資料庫(for家裡)
 ## Build Setup
 
 ``` bash
