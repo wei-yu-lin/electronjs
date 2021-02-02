@@ -68,16 +68,35 @@ module.exports = {
   async delete(req, res, next) {
     var coil_no = req.body.coil_no;
     let sql = sqlMap.delete;
-    const connection1 = await odbc.connect("DSN=RDBCPS36;UID=yuCPS00;PWD=CPS111036A");
-    connection1.query(sql, [coil_no], (err, result) => {
+    await pool.getConnection((err, connection) => {
       if (err) {
-        console.log("錯誤" + err)
+        console.log("錯囉=", err)
+        return
       }
       else {
-        console.log("資料刪除完成");
-        res.json(result);
+        connection.query(sql, [coil_no], (err, result) => {
+          console.log("資料刪除完成");
+          res.json(result);
+          connection.release();
+        })
       }
-    });
+    })
+  },
+  async signin(req, res, next) {
+    let login_user = req.body.username, login_password = req.body.password;
+    let sql = sqlMap.login;
+    await pool.getConnection((err, connection) => {
+      if (err) {
+        console.log("錯囉=", err)
+        return
+      }
+      else {
+        connection.query(sql, [login_user], (err, result) => {
+          console.log("登入成功");
+          res.json(result);
+          connection.release();
+        })
+      }
+    })
   }
-
 }

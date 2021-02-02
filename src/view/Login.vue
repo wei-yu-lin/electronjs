@@ -5,7 +5,7 @@
         <img src="@/assets/logo.png" id="icon" alt="User Icon" />
       </div>
 
-      <form>
+      <form @submit.prevent="signin">
         <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" v-model="user.username">
         <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" v-model="user.password">
         <input type="submit" class="fadeIn fourth" value="Log In">
@@ -28,6 +28,14 @@ export default {
         username: '',
         password: ''
       }
+    }
+  },
+  methods: {
+    signin () {
+      this.$http.post('/api/signin', this.user).then((res) => {
+        console.log('response=', res)
+        // location.reload()
+      })
     }
   }
 }

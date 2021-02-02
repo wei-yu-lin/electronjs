@@ -56,7 +56,7 @@ export default {
     },
     del (item) {
       this.$http.post('/api/delete', {
-        coil_no: item.COIL_NUMBER
+        coil_no: item.coil_no
       }).then((res) => {
         console.log('res', res)
         location.reload()

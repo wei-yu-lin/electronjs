@@ -13,4 +13,7 @@ router.post('/insertValue', (req, res, next) => {
 router.post('/delete', (req, res, next) => {
   api.delete(req, res, next);
 });
+router.post('/signin', (req, res, next) => {
+  api.signin(req, res, next);
+});
 module.exports = router;
