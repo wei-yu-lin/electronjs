@@ -32,10 +32,13 @@ export default {
   },
   methods: {
     signin () {
-      this.$http.post('/api/signin', this.user).then((res) => {
-        console.log('response=', res)
-        // location.reload()
-      })
+      let re = /\w+@gmail.com/
+      let userid = this.user.username
+      userid.match(re)
+      // this.$http.post('/api/signin', this.user).then((res) => {
+      //   console.log('response=', res)
+      //   // location.reload()
+      // })
     }
   }
 }
