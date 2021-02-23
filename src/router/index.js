@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/view/Login'
+import Login from '@/view/member_system/Login'
+import Regsiter from '@/view/member_system/Regsiter'
 import coil from '@/view/Coil'
 import coilmod from '@/view/coil_child/Coilmod'
 
@@ -12,6 +13,11 @@ export default new Router({
       path: '/Login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/regsiter',
+      name: 'Regsiter',
+      component: Regsiter
     },
     {
       path: '/coil',

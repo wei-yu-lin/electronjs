@@ -1,4 +1,5 @@
 require('dotenv').config();
+const bcrypt = require('bcrypt');
 const mysql = require('mysql');
 const sqlMap = require('./sqlMap');
 const db = require('./db');
@@ -82,17 +83,40 @@ module.exports = {
       }
     })
   },
-  async signin(req, res, next) {
+  async signin(req, res, next) { //會員登入
     let login_user = req.body.username, login_password = req.body.password;
-    let sql = sqlMap.login;
+    let member_login = sqlMap.login;
     await pool.getConnection((err, connection) => {
       if (err) {
         console.log("錯囉=", err)
         return
       }
       else {
-        connection.query(sql, [login_user], (err, result) => {
+        connection.query(member_login, [login_user], (err, result) => {
           console.log("登入成功");
+          res.json(result);
+          connection.release();
+        })
+      }
+    })
+  },
+  async regsiter(req, res, next) { //會員註冊
+    let regsiter_username = req.body.username; //使用者帳號
+    let regsiter_password = bcrypt.hashSync(req.body.password, 10); //使用者密碼
+    let member_regsiter = sqlMap.regsiter; //sql語法
+
+    // bcrypt.hash(regsiter_password, 10).then(function (hash) {
+    //   console.log(hash);
+    // });
+
+    await pool.getConnection((err, connection) => {
+      if (err) {
+        console.log("錯囉=", err)
+        return
+      }
+      else {
+      connection.query(member_regsiter, [regsiter_username, regsiter_password], (err, result) => {
+        console.log("註冊成功,帳號=" + regsiter_username + "密碼" + regsiter_password);
           res.json(result);
           connection.release();
         })

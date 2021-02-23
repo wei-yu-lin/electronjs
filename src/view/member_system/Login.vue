@@ -10,11 +10,9 @@
         <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" v-model="user.password">
         <input type="submit" class="fadeIn fourth" value="Log In">
       </form>
-
       <div id="formFooter">
-        <a class="underlineHover" href="#">Forgot Password?</a>
+        <router-link class="underlineHover"  :to="{name:'Regsiter'}">申請帳號</router-link>
       </div>
-
     </div>
   </div>
 </template>
@@ -34,7 +32,9 @@ export default {
     signin () {
       let re = /\w+@gmail.com/
       let userid = this.user.username
-      userid.match(re)
+      if (userid.search(re) !== 0) {
+        alert('hi')
+      }
       // this.$http.post('/api/signin', this.user).then((res) => {
       //   console.log('response=', res)
       //   // location.reload()
@@ -45,5 +45,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import"../assets/helpers/login.scss";
+@import"@/assets/helpers/login.scss";
 </style>
