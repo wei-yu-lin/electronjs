@@ -45,11 +45,15 @@ export default {
       let username = this.username
       let password = this.password
       if (username.search(re) > 0) {
-        this.$http.post('/api/regsiter', {
+        this.$http.post('/auth/regsiter', {
           'username': username,
           'password': password
         }).then((res) => {
-          console.log('hi=' + res)
+          if (res.data === '帳號已註冊') {
+            console.log('帳號註冊過')
+          } else if (res.data === '註冊成功') {
+            console.log('註冊成功')
+          }
         })
       } else {
         console.log('不符合' + username.search(re) + username)

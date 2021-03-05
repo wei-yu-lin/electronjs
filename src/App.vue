@@ -9,27 +9,37 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <router-link class="nav-link active"  :to="{name:'Login'}">首頁</router-link>
+              <router-link class="nav-link active"  :to="{name:'Login'}" replace>首頁</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link active" :to="{name:'鋼捲'}">在製鋼捲</router-link>
+              <router-link class="nav-link active" :to="{name:'鋼捲'}" replace>在製鋼捲</router-link>
             </li>
           </ul>
           <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+           <button class="btn btn-outline-success" v-if="user_platform" type="submit" @click="user_login">登入</button>
+            <button class="btn btn-outline-success" v-else type="submit" @click="user_logout">登出</button>
           </form>
         </div>
       </div>
     </nav>
-    <img class="img-thumbnail" src="./assets/貓咪2.jpg">
+    <!-- <img class="img-thumbnail" src="./assets/貓咪2.jpg"> -->
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    user_login () {
+      this.$router.push({name: 'Login'})
+    }
+  },
+  data: function () {
+    return {
+      user_platform: true
+    }
+  }
 }
 </script>
 

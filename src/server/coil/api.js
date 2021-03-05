@@ -2,18 +2,25 @@ require('dotenv').config();
 const bcrypt = require('bcrypt');
 const mysql = require('mysql');
 const sqlMap = require('./sqlMap');
-const db = require('./db');
 
+
+const config = {
+  host: 'localhost',  // 新建資料庫連線時的 主機名或ID地址 內容
+  user: 'root',
+  password: '0531', // root 密碼
+  database: 'vue', // 資料庫名
+  port: '3306'
+}
 const pool = mysql.createPool({
   connectionLimit: 1000,
   connectTimeout: 60 * 60 * 1000,
   acquireTimeout: 60 * 60 * 1000,
   timeout: 60 * 60 * 1000,
-  host: db.mysql.host,
-  user: db.mysql.user,
-  password: db.mysql.password,
-  database: db.mysql.database,
-  port: db.mysql.port,
+  host: config.host,
+  user: config.user,
+  password: config.password,
+  database: config.database,
+  port: config.port,
   multipleStatements: true    // 多語句查詢
 });
 
@@ -58,7 +65,7 @@ module.exports = {
         return
       }
       else {
-         connection.query(sql, [coil_no, steel_grade, entry_weight, entry_width], (err, result) => {
+        connection.query(sql, [coil_no, steel_grade, entry_weight, entry_width], (err, result) => {
           res.json(result)
           console.log("資料新增完成");
           connection.release();
@@ -77,46 +84,6 @@ module.exports = {
       else {
         connection.query(sql, [coil_no], (err, result) => {
           console.log("資料刪除完成");
-          res.json(result);
-          connection.release();
-        })
-      }
-    })
-  },
-  async signin(req, res, next) { //會員登入
-    let login_user = req.body.username, login_password = req.body.password;
-    let member_login = sqlMap.login;
-    await pool.getConnection((err, connection) => {
-      if (err) {
-        console.log("錯囉=", err)
-        return
-      }
-      else {
-        connection.query(member_login, [login_user], (err, result) => {
-          console.log("登入成功");
-          res.json(result);
-          connection.release();
-        })
-      }
-    })
-  },
-  async regsiter(req, res, next) { //會員註冊
-    let regsiter_username = req.body.username; //使用者帳號
-    let regsiter_password = bcrypt.hashSync(req.body.password, 10); //使用者密碼
-    let member_regsiter = sqlMap.regsiter; //sql語法
-
-    // bcrypt.hash(regsiter_password, 10).then(function (hash) {
-    //   console.log(hash);
-    // });
-
-    await pool.getConnection((err, connection) => {
-      if (err) {
-        console.log("錯囉=", err)
-        return
-      }
-      else {
-      connection.query(member_regsiter, [regsiter_username, regsiter_password], (err, result) => {
-        console.log("註冊成功,帳號=" + regsiter_username + "密碼" + regsiter_password);
           res.json(result);
           connection.release();
         })

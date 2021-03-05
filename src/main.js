@@ -3,17 +3,18 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Cookie from 'vue-cookies'
 import App from './App'
-import router from './router'
+import {coiltodolist} from './router'
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
-
+Vue.use(Cookie)
 /* eslint-disable no-new */
 
 new Vue({
   el: '#app',
-  router,
+  router: coiltodolist,
   components: { App },
   template: '<App/>'
 })

@@ -17,7 +17,15 @@ module.exports = {
         pathRewrite: {
           '^/api': ''
         }
-      }},
+      },
+      '/auth': {
+        target: 'http://localhost:3000/auth',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/auth': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
