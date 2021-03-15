@@ -1,25 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< Updated upstream
-import HelloWorld from '@/components/HelloWorld'
-=======
+import Cookies from 'vue-cookies'
+
 import Login from '@/view/member_system/Login'
 import Regsiter from '@/view/member_system/Regsiter'
 import coil from '@/view/coil_child/Coil'
 import coilmod from '@/view/coil_child/Coilmod'
->>>>>>> Stashed changes
 
-Vue.use(Router) //啟用Router
+Vue.use(Router) // 啟用Router
 
-<<<<<<< Updated upstream
-export default new Router({
-  routes: [{  //設定路徑
-    path: '/index', //自訂路徑
-    name: 'HelloWorld', //設定名稱
-    component: HelloWorld //選擇要對應的元件
-  }]
-})
-=======
 const coiltodolist = new Router({
   mode: 'history',
   routes: [
@@ -74,26 +63,3 @@ coiltodolist.beforeEach(async (to, from, next) => {
 })
 
 export {coiltodolist}
-
-// export default new Router({
-//   routes: [
-//     {
-//       path: '/Login',
-//       name: 'Login',
-//       component: Login
-//     },
-//     {
-//       path: '/coil',
-//       name: '鋼捲',
-//       component: coil,
-//       children: [
-//         {
-//           path: '/coil/insert',
-//           name: '鋼捲新增',
-//           component: coilmod
-//         }
-//       ]
-//     }
-//   ]
-// })
->>>>>>> Stashed changes

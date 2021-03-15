@@ -5,7 +5,6 @@ require('dotenv').config()
 const sqlMap = require('./sqlMap')
 const odbc = require('odbc')
 
-
 module.exports = {
   async getValue (req, res, next) {
     let sql = sqlMap.getValue
@@ -16,7 +15,7 @@ module.exports = {
       } else {
         res.json(result)
         console.log(result)
-        connection1.close(error => { if (error) return })
+        connection1.close(error => { if (error) { } })
       }
     })
   },

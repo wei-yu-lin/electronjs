@@ -15,8 +15,10 @@ Content-Type: application/json
 
 {"coil_no":"CCC8876"}
 
+
 ###
-POST http://localhost:3000/auth/login HTTP/1.1
+POST http://localhost:3000/api/signin HTTP/1.1
 content-type: application/json
 
-{"username":"qwe@gmail.com","password":"qwe"}
+{"username":"a3815612cxv@gmail.com","passowrd":"a123"}
+
