@@ -2,7 +2,7 @@
   <div class="wrapper fadeInDown">
     <div id="formContent">
       <div class="fadeIn first">
-        <img src="@/assets/logo.png" id="icon" alt="User Icon" />
+        <img src="@/assets/貓咪2.jpg" id="icon" alt="User Icon" />
       </div>
 
       <form @submit.prevent="signin">
@@ -12,7 +12,7 @@
       </form>
 
       <div id="formFooter">
-        <a class="underlineHover" href="#">Forgot Password?</a>
+        <router-link class="underlineHover"  :to="{name:'Regsiter'}">申請帳號</router-link>
       </div>
 
     </div>
@@ -50,6 +50,7 @@ export default {
           password: password
         }).then((res) => {
           if (res.data === '登入成功') {
+            this.$emit('login', false)
             this.$router.push({name: '鋼捲'})
           }
         })

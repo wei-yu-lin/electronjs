@@ -45,8 +45,8 @@ const coiltodolist = new Router({
 coiltodolist.beforeEach(async (to, from, next) => {
   if (to.meta.requireAuth) {
     const info = Cookies.get('login')
-    const token = info.token
     if (info) {
+      const token = info.token
       // 如果token不為空，且確實有這個欄位則讓路由變更
       if (token.length > 0 || token === undefined) {
         next()

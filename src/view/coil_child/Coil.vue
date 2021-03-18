@@ -28,10 +28,10 @@
              <input v-model="item.STEEL_GRADE">
             </td>
             <td>
-              <input v-model="item.entry_weight">
+              <input v-model="item.ENTRY_WEIGHT">
             </td>
             <td>
-              <input v-model="item.entry_width">
+              <input v-model="item.ENTRY_WIDTH">
             </td>
           </template>
           <td>

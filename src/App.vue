@@ -16,14 +16,14 @@
             </li>
           </ul>
           <form class="d-flex">
-           <button class="btn btn-outline-success" v-if="user_platform" type="submit" @click="user_login">登入</button>
-            <button class="btn btn-outline-success" v-else type="submit" @click="user_logout">登出</button>
+           <router-link class="btn btn-outline-success" v-if="user_platform"  :to="{name:'Login'}">登入</router-link>
+            <button class="btn btn-outline-success" v-else @click="logout">登出</button>
           </form>
         </div>
       </div>
     </nav>
-    <!-- <img class="img-thumbnail" src="./assets/貓咪2.jpg"> -->
-    <router-view/>
+    <router-view
+    @login='login'/>
   </div>
 </template>
 
@@ -31,15 +31,24 @@
 export default {
   name: 'App',
   methods: {
-    user_login () {
-      this.$router.push({name: 'Login'})
+    login (val) {
+      this.user_platform = val
+    },
+    logout () {
+      this.$cookies.remove('login')
     }
   },
   data: function () {
     return {
       user_platform: true
     }
-  }
+  },
+  beforeMount:
+    function () {
+      if (this.$cookies.get('login')) {
+        this.user_platform = false
+      }
+    }
 }
 </script>
 
@@ -55,5 +64,5 @@ export default {
 </style>
 
 <style lang="scss">
-@import "./assets/all.scss";
+@import "@/assets/all.scss";
 </style>
