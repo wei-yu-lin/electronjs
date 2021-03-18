@@ -1,6 +1,6 @@
 # first
 
-> A Vue.js project
+> A Vue.js project(for 公司)
 
 ## Build Setup
 
