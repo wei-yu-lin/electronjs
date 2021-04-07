@@ -1,12 +1,14 @@
 import Vue from 'vue'
-import Cookies from 'vue-cookies'
 import Router from 'vue-router'
+import Cookies from 'vue-cookies'
+
 import Login from '@/view/member_system/Login'
+import About from '@/view/About'
 import Regsiter from '@/view/member_system/Regsiter'
 import coil from '@/view/coil_child/Coil'
 import coilmod from '@/view/coil_child/Coilmod'
 
-Vue.use(Router)
+Vue.use(Router) // 啟用Router
 
 const coiltodolist = new Router({
   mode: 'history',
@@ -37,6 +39,11 @@ const coiltodolist = new Router({
           component: coilmod
         }
       ]
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About
     }
   ]
 })
@@ -44,8 +51,8 @@ const coiltodolist = new Router({
 coiltodolist.beforeEach(async (to, from, next) => {
   if (to.meta.requireAuth) {
     const info = Cookies.get('login')
-    const token = info.token
     if (info) {
+      const token = info.token
       // 如果token不為空，且確實有這個欄位則讓路由變更
       if (token.length > 0 || token === undefined) {
         next()

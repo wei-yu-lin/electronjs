@@ -8,7 +8,7 @@
         <thead class="thead-dark">
             <tr>
             <th scope="col">鋼捲</th>
-            <th scope="col">排程號碼</th>
+            <th scope="col">鋼種</th>
             <th scope="col">入料重</th>
             <th scope="col">入料寬</th>
             </tr>
@@ -19,11 +19,11 @@
         </td>
         <td class="col-auto">
             <label for="inputPassword2" class="visually-hidden">Password</label>
-            <input type="text" class="form-control" id="input2" v-model="temp.input2" placeholder="請輸入排程號碼">
+            <input type="text" class="form-control" id="input2" v-model="temp.input2" placeholder="請輸入鋼種">
         </td>
         <td class="col-auto">
             <label for="inputPassword2" class="visually-hidden">Password</label>
-            <input type="text" class="form-control" id="input3" v-model="temp.input3" placeholder="請輸入數字">
+            <input type="text" class="form-control" id="input3" v-model="temp.input3" placeholder="請輸入入料重">
         </td>
         <td class="col-auto">
             <label for="inputPassword2" class="visually-hidden">Password</label>
@@ -49,22 +49,17 @@ export default {
     before () {
       this.$router.back()
     },
-    // save () {
-    //   this.$http.get('/api/getArticle').then((res) => {
-    //     console.log('res', res)
-    //   })
-    // }
     save () {
-      this.$http.post('/api/getArticle', {
+      this.$http.post('/api/insertValue', {
         coil_no: this.temp.input1,
-        schd_no: this.temp.input2,
+        steel_grade: this.temp.input2,
         entry_weight: this.temp.input3,
         entry_width: this.temp.input4
       }).then((res) => {
         console.log('res', res)
+        location.reload()
       })
     }
-
   }
 }
 </script>

@@ -1,29 +1,32 @@
 <template>
-  <div id="app" class="container">
+  <div id="app" class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">燁聯小幫手</a>
+        <div class="logo">
+          <img src="./assets/yusco.jpg" style="width:35px;height:35px;">
+          <router-link class="navbar-brand " :to="{name:'Login'}" replace>燁聯小幫手</router-link>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <router-link class="nav-link active"  :to="{name:'Login'}" replace>首頁</router-link>
+              <router-link class="nav-link active" :to="{name:'About'}">關於</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link active" :to="{name:'鋼捲'}" replace>在製鋼捲</router-link>
             </li>
           </ul>
           <form class="d-flex">
-           <button class="btn btn-outline-success" v-if="user_platform" type="submit" @click="user_login">登入</button>
-            <button class="btn btn-outline-success" v-else type="submit" @click="user_logout">登出</button>
+           <router-link class="btn btn-outline-success" v-if="user_platform"  :to="{name:'Login'}">登入</router-link>
+            <button class="btn btn-outline-success" v-else @click="logout">登出</button>
           </form>
         </div>
       </div>
     </nav>
-    <!-- <img class="img-thumbnail" src="./assets/貓咪2.jpg"> -->
-    <router-view/>
+    <router-view class="bg" @login='login'/>
+    <footer>翻印</footer>
   </div>
 </template>
 
@@ -31,15 +34,24 @@
 export default {
   name: 'App',
   methods: {
-    user_login () {
-      this.$router.push({name: 'Login'})
+    login (val) {
+      this.user_platform = val
+    },
+    logout () {
+      this.$cookies.remove('login')
     }
   },
   data: function () {
     return {
       user_platform: true
     }
-  }
+  },
+  beforeMount:
+    function () {
+      if (this.$cookies.get('login')) {
+        this.user_platform = false
+      }
+    }
 }
 </script>
 
@@ -49,11 +61,21 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+.bg{
+  background-color: burlywood;
+}
+.logo{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
 }
 </style>
 
 <style lang="scss">
-@import "./assets/all.scss";
+@import "@/assets/all.scss";
 </style>

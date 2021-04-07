@@ -98,6 +98,8 @@ export default {
   },
   created () {
     this.show_value()
+  },
+  computed: {
   }
 }
 </script>
