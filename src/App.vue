@@ -1,15 +1,18 @@
 <template>
-  <div id="app" class="container">
+  <div id="app" class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">燁聯小幫手</a>
+        <div class="logo">
+          <img src="./assets/yusco.jpg" style="width:35px;height:35px;">
+          <router-link class="navbar-brand " :to="{name:'Login'}" replace>燁聯小幫手</router-link>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <router-link class="nav-link active"  :to="{name:'Login'}" replace>首頁</router-link>
+              <router-link class="nav-link active" :to="{name:'About'}">關於</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link active" :to="{name:'鋼捲'}" replace>在製鋼捲</router-link>
@@ -22,8 +25,7 @@
         </div>
       </div>
     </nav>
-    <router-view
-    @login='login'/>
+    <router-view class="bg" @login='login'/>
   </div>
 </template>
 
@@ -58,8 +60,18 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+.bg{
+  background-color: burlywood;
+}
+.logo{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
 }
 </style>
 

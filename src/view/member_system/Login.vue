@@ -2,11 +2,12 @@
   <div class="wrapper fadeInDown">
     <div id="formContent">
       <div class="fadeIn first">
-        <img src="@/assets/貓咪2.jpg" id="icon" alt="User Icon" />
+        <img src="@/assets/cat.gif" id="icon" class="img-thumbnail" />
       </div>
-
       <form @submit.prevent="signin">
+        <h2>帳號</h2>
         <input type="text" class="fadeIn second" name="login" placeholder="login" v-model="user.username">
+        <h2>密碼</h2>
         <input type="text" class="fadeIn third" name="login" placeholder="password" v-model="user.password">
         <input type="submit" class="fadeIn fourth" value="Log In">
       </form>
@@ -59,7 +60,6 @@ export default {
   }
 }
 </script>
-
 <style lang="scss">
 @import"@/assets/helpers/login.scss";
 </style>

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Cookies from 'vue-cookies'
 
 import Login from '@/view/member_system/Login'
+import About from '@/view/About'
 import Regsiter from '@/view/member_system/Regsiter'
 import coil from '@/view/coil_child/Coil'
 import coilmod from '@/view/coil_child/Coilmod'
@@ -38,6 +39,11 @@ const coiltodolist = new Router({
           component: coilmod
         }
       ]
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About
     }
   ]
 })
