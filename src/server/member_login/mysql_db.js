@@ -1,6 +1,4 @@
 const mysql = require('mysql')
-const express = require('express')
-const app = express()
 
 const config = {
   host: 'localhost', // 新建資料庫連線時的 主機名或ID地址 內容

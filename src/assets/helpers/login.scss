@@ -5,6 +5,17 @@ a {
   font-weight: 400;
 }
 
+h1  {
+  &.headline {
+    width: 100%;
+    left: 0;
+    margin-bottom: 2rem;
+    font-size: 36px;
+  }
+}
+
+
+
 h2 {
   text-align: center;
   font-size: 30px;
@@ -20,14 +31,26 @@ h2:hover{
   opacity: 1;
 }
 
+label {
+  width: 65%;
+  left: 0;
+  display: block;
+}
+
 
 /* STRUCTURE */
+.login-box{
+  border: 1px solid rgba(77, 75, 75, 0.5) ;
+  margin-right: 2.5rem;
+  padding: 2.5rem 5rem;
+}
 
 .wrapper {
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  align-items: baseline;
+  flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
   min-height: 100%;
   padding: 20px;
@@ -38,7 +61,7 @@ h2:hover{
   border-radius: 10px;
   background: #19874e85;
   padding: 30px;
-  width: 75%;
+  width: 100%;
   max-width: 450px;
   position: relative;
   padding: 0px;
@@ -232,7 +255,6 @@ input[type=text]:placeholder {
 }
 
 .fadeIn.first {
-  margin-top: 30px;
   -webkit-animation-delay: 0.4s;
   -moz-animation-delay: 0.4s;
   animation-delay: 0.4s;
