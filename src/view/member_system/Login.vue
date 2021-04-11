@@ -1,20 +1,21 @@
 <template>
   <div class="wrapper fadeInDown">
+    <h1 class="headline">會員登入/註冊</h1>
     <div class="login-box">
       <div id="formContent">
         <div class="fadeIn first">
           <img src="@/assets/cat.gif" id="icon" class="img-thumbnail" />
         </div>
-        <form @submit.prevent="signin">
-          <div style="">
+        <form class="column-flex" @submit.prevent="signin">
+          <div class="login-text">
             <label>帳號</label>
             <input type="text" class="fadeIn second" name="login" placeholder="login" v-model="user.username">
           </div>
-          <div>
+          <div class="login-text">
             <label>密碼</label>
             <input type="text" class="fadeIn third" name="login" placeholder="password" v-model="user.password">
-            <input type="submit" class="fadeIn fourth" value="Log In">
           </div>
+            <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
         <div id="formFooter">
           <router-link class="underlineHover"  :to="{name:'Regsiter'}">申請帳號</router-link>
@@ -24,11 +25,11 @@
     <div class="login-box">
       <div id="formContent" class="wrapper fadeInDown">
         <form>
-          <div>請輸入帳號</div>
-          <input type="text" v-model="username" class="fadeIn second" placeholder="login">
-          <div>請輸入密碼</div>
-          <input type="text" v-model="password" class="fadeIn third"  placeholder="password">
-          <button type="button" class="btn btn-primary" @click="MemberRegsiter_Submit">註冊帳號</button>
+          <label>Email帳號</label>
+          <input type="text"  class="fadeIn second" placeholder="sample@gmail.com">
+          <label>密碼</label>
+          <input type="text"  class="fadeIn third"  placeholder="密碼">
+          <button type="button" class="btn btn-primary" >註冊帳號</button>
         </form>
       </div>
     </div>
@@ -75,3 +76,10 @@ export default {
   }
 }
 </script>
+
+<style>
+  div.login-text{
+    width: 65%;
+  }
+
+</style>

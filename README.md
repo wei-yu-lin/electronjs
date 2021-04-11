@@ -1,5 +1,5 @@
-# first
-
+# neon
+  這是一個用vue打造的訂房網站，可供使用者訂購台灣各區民宿、飯店
 > MySQL資料庫(for家裡)
 ## Build Setup
 

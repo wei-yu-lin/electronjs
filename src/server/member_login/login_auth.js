@@ -15,8 +15,7 @@ const selectUserLogin = (insertValues) => {
             if (error) {
               console.error('SQL error: ', error)
               reject(error) // 寫入資料庫有問題時回傳錯誤
-            }
-            else if (Object.keys(result).length === 0) {
+            } else if (Object.keys(result).length === 0) {
               resolve('信箱尚未註冊！')
             } else {
               const dbHashPassword = result[0]['password'] // 資料庫加密後的密碼
@@ -40,9 +39,9 @@ const selectUserLogin = (insertValues) => {
 
 router.post('/login', (req, res, next) => {
   // selectUserLogin(req)
-  selectUserLogin(req).then((value)=>{
+  selectUserLogin(req).then((value) => {
     res.json(value)
   })
 })
 
-module.exports = router;
+module.exports = router

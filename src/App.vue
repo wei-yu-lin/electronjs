@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="logo">
           <img src="./assets/yusco.jpg" style="width:35px;height:35px;">
-          <router-link class="navbar-brand " :to="{name:'Login'}" replace>燁聯小幫手</router-link>
+          <router-link class="navbar-brand " :to="{name:'Login'}" replace>Neon</router-link>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -19,14 +19,13 @@
             </li>
           </ul>
           <form class="d-flex">
-           <router-link class="btn btn-outline-success" v-if="user_platform"  :to="{name:'Login'}">登入</router-link>
+           <router-link class="btn btn-outline-success" v-if="user_platform"  :to="{name:'Login'}">登入/註冊</router-link>
             <button class="btn btn-outline-success" v-else @click="logout">登出</button>
           </form>
         </div>
       </div>
     </nav>
     <router-view class="bg" @login='login'/>
-    <footer>翻印</footer>
   </div>
 </template>
 
@@ -60,7 +59,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
 }
 .bg{
   background-color: burlywood;
