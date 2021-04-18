@@ -1,8 +1,47 @@
+// 導覽
+//   *標籤
+//   *結構
+//   *ANIMATIONS
+
+
+// 標籤
 a {
   color: #92badd;
   display: inline-block;
   text-decoration: none;
   font-weight: 400;
+}
+
+article{
+  &.content-box{
+    display: flex;
+    width: 100%;
+  }
+}
+
+button {
+  &.btn-svg{
+    margin-top: 10px;
+    width: 30px;
+    height: 40px;
+    padding: 0px;
+    left:7%;
+    top:0;
+    text-align: center;
+    background-color: transparent;
+    border: transparent;
+    position: absolute;
+  }
+  &.btn-svg:hover{
+    border-radius: 20px;
+    box-shadow:-3px -3px 2px rgba(255,255,255,0.3),
+                5px 5px 5px rgba(0,0,0,0.2),
+  }
+}
+div{
+  &.login-text{
+    width: 65%;
+  }
 }
 
 h1  {
@@ -14,8 +53,6 @@ h1  {
   }
 }
 
-
-
 h2 {
   text-align: center;
   font-size: 30px;
@@ -25,59 +62,7 @@ h2 {
   flex-direction: column;
   // margin: 40px 8px 10px 8px;
   color:rgba(3, 3, 0, 0.904);
-  opacity: 0.5;
 }
-h2:hover{
-  opacity: 1;
-}
-
-label {
-  font-weight: 400;
-  margin-bottom: 8px;
-}
-
-
-/* STRUCTURE */
-.login-box{
-  border: 1px solid rgba(77, 75, 75, 0.5) ;
-  margin-right: 2.5rem;
-  padding: 2.5rem 5rem;
-}
-
-.wrapper {
-  display: flex;
-  align-items: baseline;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 20px;
-}
-
-#formContent {
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  background: #19874e85;
-  width: 450px;
-  position: relative;
-  padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-
-}
-
-#formFooter {
-  background-color: #f6f6f6;
-  border-top: 1px solid #dce8f1;
-  padding: 25px;
-  text-align: center;
-  -webkit-border-radius: 0 0 10px 10px;
-  border-radius: 0 0 10px 10px;
-}
-
-
-
-/* TABS */
 
 h2.inactive {
   color: #cccccc;
@@ -88,9 +73,18 @@ h2.active {
   border-bottom: 2px solid #5fbae9;
 }
 
+label {
+  font-weight: 400;
+  margin-bottom: 8px;
+}
 
+span{
+  &.icon-box-header{
+    width: 144px;
+    height: 144px;
 
-/* FORM TYPOGRAPHY*/
+  }
+}
 
 form{
   &.column-flex{
@@ -107,7 +101,7 @@ input[type=reset] {
   background-color: #56baed;
   border: none;
   color: white;
-  padding: 15px 80px;
+  padding: 10px 55px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -146,12 +140,12 @@ input[type=text] {
   margin-bottom: 10px;
   border: none;
   color: #0d0d0d;
-  padding: 10px 32px;
+  padding: 6px 10px;
   display: inline-block;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  width: 100%;
+  width: 13rem;
   border: 2px solid #f6f6f6;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -170,6 +164,56 @@ input[type=text]:focus {
 input[type=text]:placeholder {
   color: #d35151;
 }
+svg {
+  &.arrow-left-short{
+    position: relative;
+  }
+}
+
+
+/* 結構 */
+.login-box{
+  border: 1px solid rgba(77, 75, 75, 0.5) ;
+  margin-right: 2.5rem;
+  padding: 2.5rem 5rem;
+  width:100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+}
+
+#formContent {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #19874e85;
+  width: 100%;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  height: 100%;
+}
+
+#formFooter {
+  background-color: #f6f6f6;
+  border-top: 1px solid #dce8f1;
+  padding: 25px;
+  text-align: center;
+  -webkit-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+
+}
+
+
+
 
 
 

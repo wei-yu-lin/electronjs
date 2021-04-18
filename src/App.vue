@@ -25,7 +25,7 @@
         </div>
       </div>
     </nav>
-    <router-view class="bg" @login='login'/>
+    <router-view @login='login'/>
   </div>
 </template>
 
@@ -60,9 +60,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.bg{
-  background-color: burlywood;
-}
+
 .logo{
   display: flex;
   flex-direction: column;
