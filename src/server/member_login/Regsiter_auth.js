@@ -13,13 +13,12 @@ const UserRegsiter = (req) => {
         let regsiter_password = bcrypt.hashSync(req.body['password'], 10)
         let data = [regsiter_username, regsiter_password ]
         connection.query( // User撈取所有欄位的值組
-          'INSERT INTO userdata (username,password) VALUES (?,?)',data, (error, result) => {
+          'INSERT INTO userdata (username,password) VALUES (?,?)', data, (error, result) => {
             if (error) {
               if (error.code === 'ER_DUP_ENTRY') {
                 resolve('帳號已註冊')
               }
-            }
-             else {
+            } else {
               resolve('註冊成功')
             }
             connection.release()
@@ -31,9 +30,9 @@ const UserRegsiter = (req) => {
 }
 
 router.post('/regsiter', (req, res, next) => {
-  UserRegsiter(req).then((value)=>{
+  UserRegsiter(req).then((value) => {
     res.send(value)
   })
 })
 
-module.exports = router;
+module.exports = router

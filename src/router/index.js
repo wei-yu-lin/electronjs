@@ -5,8 +5,8 @@ import Cookies from 'vue-cookies'
 import Login from '@/view/member_system/Login'
 import About from '@/view/About'
 import Regsiter from '@/view/member_system/Regsiter'
-import coil from '@/view/coil_child/Coil'
-import coilmod from '@/view/coil_child/Coilmod'
+import search from '@/view/hotel/Search'
+import coilmod from '@/view/hotel/Coilmod'
 
 Vue.use(Router) // 啟用Router
 
@@ -28,9 +28,9 @@ const coiltodolist = new Router({
       component: Regsiter
     },
     {
-      path: '/coil',
-      name: '鋼捲',
-      component: coil,
+      path: '/search',
+      name: '查詢',
+      component: search,
       meta: { requireAuth: true },
       children: [
         {

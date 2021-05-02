@@ -15,7 +15,7 @@
               <router-link class="nav-link active" :to="{name:'About'}">關於</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link active" :to="{name:'鋼捲'}" replace>在製鋼捲</router-link>
+              <router-link class="nav-link active" :to="{name:'查詢'}" replace>飯店查詢</router-link>
             </li>
           </ul>
           <form class="d-flex">
@@ -72,6 +72,6 @@ export default {
 }
 </style>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "@/assets/all.scss";
 </style>

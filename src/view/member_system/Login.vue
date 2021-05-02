@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import MemberSystem from '@/components/MemberSystem'
+import MemberSystem from '@/components/Member/LoginForm'
 export default {
   name: 'Login',
   components: {
@@ -17,13 +17,6 @@ export default {
 }
 </script>
 
-<style>
-  .box{
-    max-width: 75%;
-    margin: 32px auto;
-    height: 100%;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px rgb(41 51 57 / 50%);
-    background-color: #fff;
-  }
+<style scoped lang="scss" >
+@import "@/assets/helpers/login.scss";
 </style>
